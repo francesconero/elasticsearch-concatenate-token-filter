@@ -36,10 +36,10 @@ Given the custom analyzer (see https://www.elastic.co/guide/en/elasticsearch/gui
       }
     }
     
-Would analyze the string:
+the string:
 
     "the fox jumped over the fence"
     
-and output the token:
+would be analyzed as:
 
     "fox_jumped_over_fence"
