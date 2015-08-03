@@ -19,17 +19,19 @@ import org.apache.lucene.util.Version;
 public class ConcatenateTokenFilterFactory extends AbstractTokenFilterFactory {
 
     private String tokenSeparator = null;
+    private int incrementGap = 100;
     
     @Inject 
     public ConcatenateTokenFilterFactory(Index index, @IndexSettings Settings indexSettings, @Assisted String name, @Assisted Settings settings) {
         super(index, indexSettings, name, settings);
         // the token_separator is defined in the ES configuration file
         tokenSeparator = settings.get("token_separator");
+	incrementGap = settings.getAsInt("increment_gap", 100);
     }
 
     @Override 
     public TokenStream create(TokenStream tokenStream) {
-        return new ConcatenateFilter(Version.LUCENE_CURRENT, tokenStream, tokenSeparator);
+        return new ConcatenateFilter(Version.LATEST, tokenStream, tokenSeparator, incrementGap);
     }
 
 }
