@@ -14,30 +14,31 @@ When saving arrays of strings to a field, these are handled in elasticsearch as 
 ## Example
 Given the custom analyzer (see https://www.elastic.co/guide/en/elasticsearch/guide/current/custom-analyzers.html):
 
-    {
-      "analysis" : {
-        "filter" : {
-          "concatenate" : {
-            "type" : "concatenate",
-            "token_separator" : "_"
-          },
-          "custom_stop" : {
-            "type": "stop",
-            "stopwords": ["and", "is", "the"]
-          }
-        },
-        "analyzer" : {
-          "stop_concatenate" : {
-            "filter" : [
-              "custom_stop",
-              "concatenate"
-            ],
-            "tokenizer" : "standard"
-          }
-        }
+```javascript
+{
+  "analysis" : {
+    "filter" : {
+      "concatenate" : {
+        "type" : "concatenate",
+        "token_separator" : "_"
+      },
+      "custom_stop" : {
+        "type": "stop",
+        "stopwords": ["and", "is", "the"]
+      }
+    },
+    "analyzer" : {
+      "stop_concatenate" : {
+        "filter" : [
+          "custom_stop",
+          "concatenate"
+        ],
+        "tokenizer" : "standard"
       }
     }
-    
+  }
+}
+```
 the string:
 
     "the fox jumped over the fence"
