@@ -3,8 +3,13 @@ Elasticsearch plugin which only provides a TokenFilter that merges tokens in a t
 
 ## Install
 To install on your current ES node, use the plugin binary provided in the bin folder (on Ubuntu it should be under `/usr/share/elasticsearch/bin`)
+For Elasticsearch 2.2.0 use
 
-    sudo bin/plugin install bomberby/elasticsearch-concatenate-token-filter/es-2.2
+    sudo bin/plugin install francesconero/elasticsearch-concatenate-token-filter/2.2.0
+
+For Elasticsearch 2.2.2 use
+
+    sudo bin/plugin install francesconero/elasticsearch-concatenate-token-filter/2.2.2
     
 ## Usage
 The plugin provides a token filter of type `concatenate` which has one parameter `token_separator`. Use it in your custom analyzers to merge tokenized strings back into one single token (usually after applying stemming or other token filters).
