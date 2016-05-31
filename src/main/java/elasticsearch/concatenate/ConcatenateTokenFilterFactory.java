@@ -12,7 +12,6 @@ import org.elasticsearch.common.inject.Inject;
 import org.elasticsearch.common.inject.assistedinject.Assisted;
 
 import org.elasticsearch.index.Index;
-import org.elasticsearch.index.settings.IndexSettings;
 
 import org.apache.lucene.util.Version;
 
@@ -22,7 +21,7 @@ public class ConcatenateTokenFilterFactory extends AbstractTokenFilterFactory {
     private int incrementGap = 100;
     
     @Inject 
-    public ConcatenateTokenFilterFactory(Index index, @IndexSettings Settings indexSettings, @Assisted String name, @Assisted Settings settings) {
+    public ConcatenateTokenFilterFactory(Index index, Settings indexSettings, @Assisted String name, @Assisted Settings settings) {
         super(index, indexSettings, name, settings);
         // the token_separator is defined in the ES configuration file
         tokenSeparator = settings.get("token_separator");
