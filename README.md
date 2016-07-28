@@ -10,7 +10,11 @@ For Elasticsearch 2.2.0 use
 For Elasticsearch 2.2.2 use
 
     sudo bin/plugin install francesconero/elasticsearch-concatenate-token-filter/2.2.2
-    
+
+For Elasticsearch 2.3.3 use
+
+    sudo bin/plugin install francesconero/elasticsearch-concatenate-token-filter/2.3.3
+
 ## Usage
 The plugin provides a token filter of type `concatenate` which has one parameter `token_separator`. Use it in your custom analyzers to merge tokenized strings back into one single token (usually after applying stemming or other token filters).
 ### Arrays
