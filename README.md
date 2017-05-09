@@ -15,6 +15,10 @@ For Elasticsearch 2.3.3 use
 
     sudo bin/plugin install francesconero/elasticsearch-concatenate-token-filter/2.3.3
 
+For Elasticsearch 5.2.0 use
+
+    sudo bin/elasticsearch-plugin install https://github.com/bomberby/elasticsearch-concatenate-token-filter/raw/es-5.2.0/elasticsearch-concatenate-5.2.0.zip
+
 ## Usage
 The plugin provides a token filter of type `concatenate` which has one parameter `token_separator`. Use it in your custom analyzers to merge tokenized strings back into one single token (usually after applying stemming or other token filters).
 ### Arrays
@@ -55,3 +59,13 @@ the string:
 would be analyzed as:
 
     "fox_jumped_over_fence"
+
+## To build new version
+  Change relevant ES versions in following files:
+  ```
+  pom.xml
+  plugin-descriptor.properties
+  target/classes/es-plugin.properties
+  ```
+  If any major change was done to ES way of writing plugins, these will need to change as well, please look at example plugins
+  run `mvn clean install` and copy result files from target/releases to root for easier linking
