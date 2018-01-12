@@ -1,4 +1,4 @@
-package org.elasticsearch.index.analysis.concatenate;
+package elasticsearch.concatenate;
 
 import java.io.IOException;
 
@@ -21,16 +21,10 @@ public final class ConcatenateFilter extends TokenFilter {
     private AttributeSource.State previousState = null;
     private boolean recheckPrevious = false;
 
-    public ConcatenateFilter(Version matchVersion, TokenStream input, String tokenSeparator, int incrementGap) {
+    public ConcatenateFilter(TokenStream input, String tokenSeparator, int incrementGap) {
         super(input);
         this.tokenSeparator = tokenSeparator!=null ? tokenSeparator : DEFAULT_TOKEN_SEPARATOR;
         this.incrementGap = incrementGap;
-    }
-
-    public ConcatenateFilter(Version matchVersion, TokenStream input, String tokenSeparator) {
-        super(input);
-        this.tokenSeparator = tokenSeparator!=null ? tokenSeparator : DEFAULT_TOKEN_SEPARATOR;
-        this.incrementGap = 100;
     }
 
     @Override
