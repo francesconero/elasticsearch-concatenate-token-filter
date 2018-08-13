@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>elasticsearch.concatenate</groupId>
 	<artifactId>elasticsearch-concatenate</artifactId>
-	<version>1.1.0</version>
+	<version>5.2.0</version>
 	<packaging>jar</packaging>
 	<description>Plugin that provides a Token Filter that recombines all of the tokens in a token stream back into one.</description>
 	<inceptionYear>2015</inceptionYear>
@@ -17,7 +17,9 @@
 		</license>
 	</licenses>
 	<properties>
-		<elasticsearch.version>1.5.2</elasticsearch.version>
+		<elasticsearch.version>5.2.0</elasticsearch.version>
+    <elasticsearch.assembly.descriptor>${project.basedir}/src/main/assemblies/plugin.xml</elasticsearch.assembly.descriptor>
+    <elasticsearch.plugin.classname>org.elasticsearch.index.analysis.concatenate.ConcatenatePlugin</elasticsearch.plugin.classname>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<build>
@@ -38,8 +40,8 @@
 				<compilerArgs>
     <arg>-Xlint:deprecation</arg>
   </compilerArgs>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 			<plugin>
